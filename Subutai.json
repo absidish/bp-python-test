@@ -1,0 +1,83 @@
+{
+  "name": "${envName}",
+  "description": "Python versions",
+  "version": "1.0.1",
+  "author": "Sydyk",
+  "containers": [
+    {
+      "hostname": "ubutnu161",
+      "template": "ubuntu16",
+      "peer-criteria": "group",
+      "size": "${ubuntu16type}"
+    },
+    {
+      "hostname": "debianstretch",
+      "template": "debian-stretch",
+      "peer-criteria": "group1",
+      "size": "${debianstretchtype}"
+    },
+    {
+      "hostname": "debianstretch1",
+      "template": "debian-stretch",
+      "peer-criteria": "group2",
+      "size": "${debianstretchtype}"
+    }
+  ],
+  "peer-criteria": [
+    {
+      "name": "group"
+    },
+{
+      "name": "group1"
+    },
+{
+      "name": "group2"
+    }
+  ],
+  "ansible-configuration": {
+    "source-url": "https://github.com/absidish/bp-python-test/archive/master.zip",
+    "ansible-playbook": "main.yml",
+    "extra-vars": [
+      {
+        "key": "key1",
+        "value": "value1"
+      }
+    ],
+    "groups": [
+      {
+        "name": "python3",
+        "python-interpreter": "/usr/bin/python3",
+        "hostnames": [
+          "ubutnu161"
+        ]
+      },
+      {
+        "name": "python",
+        "hostnames": [
+          "debianstretch",
+          "debianstretch1"
+        ]
+      }
+    ]
+  },
+  "user-variables": {
+    "ubuntu16type": {
+      "description": "You can set TINY,SMALL,MEDIUM,LARGE,HUGE",
+      "type": "enum",
+      "default": "SMALL",
+      "validation": "TINY,SMALL,MEDIUM,LARGE,HUGE"
+    },
+    "debianstretchtype": {
+      "description": "You can set TINY,SMALL,MEDIUM,LARGE,HUGE",
+      "type": "enum",
+      "default": "SMALL",
+      "validation": "TINY,SMALL,MEDIUM,LARGE,HUGE"
+    },
+    "envName": {
+      "description": "Enter your environment name",
+      "type": "string",
+      "default": "wordpress env",
+      "validation": "[a-zA-Z0-9]+"
+    }
+  }
+}
