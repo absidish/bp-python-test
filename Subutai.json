@@ -48,8 +48,7 @@
       {
         "name": "python",
         "hostnames": [
-          "debianstretch",
-          "debianstretch1"
+          "debianstretch"
         ]
       }
     ]
