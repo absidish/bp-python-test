@@ -15,12 +15,6 @@
       "template": "debian-stretch",
       "peer-criteria": "group1",
       "size": "${debianstretchtype}"
-    },
-    {
-      "hostname": "debianstretch1",
-      "template": "debian-stretch",
-      "peer-criteria": "group2",
-      "size": "${debianstretchtype}"
     }
   ],
   "peer-criteria": [
