@@ -23,9 +23,6 @@
     },
 {
       "name": "group1"
-    },
-{
-      "name": "group2"
     }
   ],
   "ansible-configuration": {
